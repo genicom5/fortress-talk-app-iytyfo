@@ -1,9 +1,7 @@
 
 import React from 'react';
-import { Platform } from 'react-native';
 import { Stack } from 'expo-router';
 import FloatingTabBar, { TabBarItem } from '@/components/FloatingTabBar';
-import { colors } from '@/styles/commonStyles';
 import i18n from '@/i18n/config';
 
 export default function TabLayout() {

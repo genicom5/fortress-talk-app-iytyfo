@@ -8,8 +8,15 @@ const i18n = new I18n({
 });
 
 // Set the locale once at the beginning of your app
-const deviceLanguage = getLocales()[0]?.languageCode || 'fr';
-i18n.locale = deviceLanguage;
+try {
+  const locales = getLocales();
+  const deviceLanguage = locales && locales[0] ? locales[0].languageCode : 'fr';
+  i18n.locale = deviceLanguage || 'fr';
+  console.log('i18n initialized with locale:', i18n.locale);
+} catch (error) {
+  console.log('Error getting locale, defaulting to French:', error);
+  i18n.locale = 'fr';
+}
 
 // When a value is missing from a language it'll fall back to French
 i18n.enableFallback = true;

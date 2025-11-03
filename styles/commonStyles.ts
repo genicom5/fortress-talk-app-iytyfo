@@ -1,105 +1,103 @@
 
 import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 
-// FortressTalk Color Palette
+// Color palette for FortressTalk
 export const colors = {
-  background: '#121212',
-  text: '#FFFFFF',
-  textSecondary: '#A0A0A0',
-  primary: '#2962FF',
-  secondary: '#64B5F6',
-  accent: '#03DAC5',
-  card: '#1E1E1E',
-  highlight: '#BB86FC',
-  border: '#2A2A2A',
-  success: '#4CAF50',
-  error: '#F44336',
-  warning: '#FF9800',
-  online: '#4CAF50',
-  offline: '#757575',
-  away: '#FF9800',
+  // Primary colors
+  primary: '#0A84FF', // Blue
+  primaryDark: '#0066CC',
+  
+  // Background colors
+  background: '#000000', // Dark background
+  backgroundLight: '#F2F2F7', // Light background
+  card: '#1C1C1E', // Dark card
+  cardLight: '#FFFFFF', // Light card
+  
+  // Text colors
+  text: '#FFFFFF', // White text
+  textLight: '#000000', // Black text for light mode
+  textSecondary: '#8E8E93', // Gray text
+  
+  // Accent colors
+  success: '#34C759',
+  warning: '#FF9500',
+  error: '#FF3B30',
+  
+  // Border colors
+  border: '#2C2C2E',
+  borderLight: '#D8D8DC',
+  
+  // Status colors
+  online: '#34C759',
+  offline: '#8E8E93',
+  away: '#FF9500',
 };
-
-export const buttonStyles = StyleSheet.create({
-  primary: {
-    backgroundColor: colors.primary,
-    paddingVertical: 12,
-    paddingHorizontal: 24,
-    borderRadius: 8,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  secondary: {
-    backgroundColor: colors.card,
-    paddingVertical: 12,
-    paddingHorizontal: 24,
-    borderRadius: 8,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  text: {
-    color: colors.text,
-    fontSize: 16,
-    fontWeight: '600',
-  },
-});
 
 export const commonStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background,
   },
-  content: {
+  safeArea: {
     flex: 1,
-    padding: 16,
   },
-  title: {
-    fontSize: 28,
-    fontWeight: '700',
+  header: {
+    fontSize: 34,
+    fontWeight: 'bold',
     color: colors.text,
-    marginBottom: 8,
+    marginBottom: 16,
   },
-  subtitle: {
+  subheader: {
+    fontSize: 20,
+    fontWeight: '600',
+    color: colors.text,
+    marginBottom: 12,
+  },
+  text: {
     fontSize: 16,
+    color: colors.text,
+  },
+  textSecondary: {
+    fontSize: 14,
     color: colors.textSecondary,
-    marginBottom: 24,
   },
   card: {
     backgroundColor: colors.card,
     borderRadius: 12,
     padding: 16,
     marginBottom: 12,
-    borderWidth: 1,
-    borderColor: colors.border,
+  },
+  button: {
+    backgroundColor: colors.primary,
+    borderRadius: 12,
+    padding: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonText: {
+    color: colors.text,
+    fontSize: 16,
+    fontWeight: '600',
   },
   input: {
     backgroundColor: colors.card,
-    borderRadius: 8,
+    borderRadius: 12,
     padding: 12,
-    color: colors.text,
     fontSize: 16,
+    color: colors.text,
     borderWidth: 1,
     borderColor: colors.border,
   },
   divider: {
     height: 1,
     backgroundColor: colors.border,
-    marginVertical: 16,
+    marginVertical: 12,
   },
-  centerContent: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  spaceBetween: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+  shadow: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 4,
   },
 });
