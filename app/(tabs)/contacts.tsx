@@ -15,6 +15,7 @@ import { IconSymbol } from '@/components/IconSymbol';
 import { colors, commonStyles } from '@/styles/commonStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import * as Haptics from 'expo-haptics';
+import i18n from '@/i18n/config';
 
 interface Contact {
   id: string;
@@ -91,11 +92,11 @@ export default function ContactsScreen() {
   const handleAddContact = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     Alert.alert(
-      'Ajouter un contact',
-      'Entrez l\'identifiant ou le lien d\'invitation du contact',
+      i18n.t('contacts.addContact'),
+      i18n.t('contacts.addContactMessage'),
       [
-        { text: 'Annuler', style: 'cancel' },
-        { text: 'Ajouter', onPress: () => console.log('Add contact') },
+        { text: i18n.t('contacts.cancel'), style: 'cancel' },
+        { text: i18n.t('contacts.add'), onPress: () => console.log('Add contact') },
       ]
     );
   };
@@ -104,12 +105,12 @@ export default function ContactsScreen() {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     Alert.alert(
       contact.name,
-      'Que voulez-vous faire ?',
+      i18n.t('contacts.contactOptions'),
       [
-        { text: 'Envoyer un message', onPress: () => console.log('Message') },
-        { text: 'Appeler', onPress: () => console.log('Call') },
-        { text: 'Voir le profil', onPress: () => console.log('Profile') },
-        { text: 'Annuler', style: 'cancel' },
+        { text: i18n.t('contacts.sendMessage'), onPress: () => console.log('Message') },
+        { text: i18n.t('contacts.call'), onPress: () => console.log('Call') },
+        { text: i18n.t('contacts.viewProfile'), onPress: () => console.log('Profile') },
+        { text: i18n.t('contacts.cancel'), style: 'cancel' },
       ]
     );
   };
@@ -148,7 +149,7 @@ export default function ContactsScreen() {
       <Stack.Screen
         options={{
           headerShown: true,
-          title: 'Contacts',
+          title: i18n.t('contacts.title'),
           headerStyle: {
             backgroundColor: colors.background,
           },
@@ -166,7 +167,7 @@ export default function ContactsScreen() {
         <IconSymbol name="magnifyingglass" size={20} color={colors.textSecondary} />
         <TextInput
           style={styles.searchInput}
-          placeholder="Rechercher un contact..."
+          placeholder={i18n.t('contacts.search')}
           placeholderTextColor={colors.textSecondary}
           value={searchQuery}
           onChangeText={setSearchQuery}
@@ -181,14 +182,14 @@ export default function ContactsScreen() {
       <View style={styles.statsContainer}>
         <View style={styles.statItem}>
           <Text style={styles.statValue}>{contacts.length}</Text>
-          <Text style={styles.statLabel}>Contacts</Text>
+          <Text style={styles.statLabel}>{i18n.t('contacts.contactsCount')}</Text>
         </View>
         <View style={styles.statDivider} />
         <View style={styles.statItem}>
           <Text style={styles.statValue}>
             {contacts.filter((c) => c.status === 'online').length}
           </Text>
-          <Text style={styles.statLabel}>En ligne</Text>
+          <Text style={styles.statLabel}>{i18n.t('contacts.onlineCount')}</Text>
         </View>
       </View>
 
@@ -204,9 +205,9 @@ export default function ContactsScreen() {
         ListEmptyComponent={
           <View style={styles.emptyContainer}>
             <IconSymbol name="person.2" size={64} color={colors.textSecondary} />
-            <Text style={styles.emptyText}>Aucun contact</Text>
+            <Text style={styles.emptyText}>{i18n.t('contacts.empty')}</Text>
             <Text style={styles.emptySubtext}>
-              Ajoutez des contacts pour commencer
+              {i18n.t('contacts.emptySubtext')}
             </Text>
           </View>
         }

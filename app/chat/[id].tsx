@@ -16,6 +16,7 @@ import { IconSymbol } from '@/components/IconSymbol';
 import { colors } from '@/styles/commonStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import * as Haptics from 'expo-haptics';
+import i18n from '@/i18n/config';
 
 interface Message {
   id: string;
@@ -116,23 +117,24 @@ export default function ChatScreen() {
 
   const handleCall = (isVideo: boolean) => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    const callType = isVideo ? 'vidéo' : 'audio';
     Alert.alert(
-      isVideo ? 'Appel vidéo' : 'Appel audio',
-      `Fonctionnalité d'appel ${isVideo ? 'vidéo' : 'audio'} en cours de développement.\n\nCette fonctionnalité nécessite WebRTC et un serveur backend pour fonctionner.`,
-      [{ text: 'OK' }]
+      isVideo ? i18n.t('chat.videoCall') : i18n.t('chat.audioCall'),
+      i18n.t('chat.callFeatureMessage', { type: callType }),
+      [{ text: i18n.t('chat.ok') }]
     );
   };
 
   const handleAttachment = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     Alert.alert(
-      'Partager un fichier',
-      'Choisissez le type de fichier à partager',
+      i18n.t('chat.shareFile'),
+      i18n.t('chat.chooseFileType'),
       [
-        { text: 'Photo', onPress: () => console.log('Photo selected') },
-        { text: 'Fichier', onPress: () => console.log('File selected') },
-        { text: 'Audio', onPress: () => console.log('Audio selected') },
-        { text: 'Annuler', style: 'cancel' },
+        { text: i18n.t('chat.photo'), onPress: () => console.log('Photo selected') },
+        { text: i18n.t('chat.file'), onPress: () => console.log('File selected') },
+        { text: i18n.t('chat.audio'), onPress: () => console.log('Audio selected') },
+        { text: i18n.t('chat.cancel'), style: 'cancel' },
       ]
     );
   };
@@ -238,7 +240,7 @@ export default function ChatScreen() {
           <View style={styles.inputWrapper}>
             <TextInput
               style={styles.input}
-              placeholder="Message..."
+              placeholder={i18n.t('chat.message')}
               placeholderTextColor={colors.textSecondary}
               value={inputText}
               onChangeText={setInputText}

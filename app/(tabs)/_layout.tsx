@@ -4,6 +4,7 @@ import { Platform } from 'react-native';
 import { Stack } from 'expo-router';
 import FloatingTabBar, { TabBarItem } from '@/components/FloatingTabBar';
 import { colors } from '@/styles/commonStyles';
+import i18n from '@/i18n/config';
 
 export default function TabLayout() {
   const tabs: TabBarItem[] = [
@@ -11,25 +12,25 @@ export default function TabLayout() {
       name: 'discussions',
       route: '/(tabs)/discussions',
       icon: 'chat.bubble.fill',
-      label: 'Discussions',
+      label: i18n.t('tabs.discussions'),
     },
     {
       name: 'calls',
       route: '/(tabs)/calls',
       icon: 'phone.fill',
-      label: 'Appels',
+      label: i18n.t('tabs.calls'),
     },
     {
       name: 'contacts',
       route: '/(tabs)/contacts',
       icon: 'person.2.fill',
-      label: 'Contacts',
+      label: i18n.t('tabs.contacts'),
     },
     {
       name: 'settings',
       route: '/(tabs)/settings',
       icon: 'gear',
-      label: 'Paramètres',
+      label: i18n.t('tabs.settings'),
     },
   ];
 

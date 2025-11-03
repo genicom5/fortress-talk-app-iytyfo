@@ -20,6 +20,7 @@ import Animated, {
   withSpring,
   interpolate,
 } from 'react-native-reanimated';
+import i18n from '@/i18n/config';
 
 const { width: screenWidth } = Dimensions.get('window');
 

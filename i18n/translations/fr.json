@@ -1,0 +1,132 @@
+
+{
+  "app": {
+    "name": "FortressTalk"
+  },
+  "tabs": {
+    "discussions": "Discussions",
+    "calls": "Appels",
+    "contacts": "Contacts",
+    "settings": "Paramètres"
+  },
+  "discussions": {
+    "title": "FortressTalk",
+    "search": "Rechercher une conversation...",
+    "empty": "Aucune conversation",
+    "emptySubtext": "Commencez une nouvelle discussion",
+    "newConversation": "Nouvelle conversation"
+  },
+  "calls": {
+    "title": "Appels",
+    "empty": "Aucun appel",
+    "emptySubtext": "Votre historique d'appels apparaîtra ici",
+    "infoMessage": "Les appels audio et vidéo nécessitent WebRTC et un serveur backend. Cette fonctionnalité sera disponible prochainement.",
+    "audioCall": "Appel audio",
+    "videoCall": "Appel vidéo",
+    "calling": "Appeler",
+    "callFeatureMessage": "Cette fonctionnalité nécessite WebRTC et un serveur backend pour fonctionner. Elle sera disponible dans une future version.",
+    "today": "Aujourd'hui",
+    "yesterday": "Hier",
+    "monday": "Lundi"
+  },
+  "contacts": {
+    "title": "Contacts",
+    "search": "Rechercher un contact...",
+    "empty": "Aucun contact",
+    "emptySubtext": "Ajoutez des contacts pour commencer",
+    "addContact": "Ajouter un contact",
+    "addContactMessage": "Entrez l'identifiant ou le lien d'invitation du contact",
+    "cancel": "Annuler",
+    "add": "Ajouter",
+    "online": "En ligne",
+    "offline": "Hors ligne",
+    "away": "Absent",
+    "lastSeen": "Vu il y a",
+    "seenYesterday": "Vu hier",
+    "contactsCount": "Contacts",
+    "onlineCount": "En ligne",
+    "contactOptions": "Que voulez-vous faire ?",
+    "sendMessage": "Envoyer un message",
+    "call": "Appeler",
+    "viewProfile": "Voir le profil"
+  },
+  "chat": {
+    "message": "Message...",
+    "shareFile": "Partager un fichier",
+    "chooseFileType": "Choisissez le type de fichier à partager",
+    "photo": "Photo",
+    "file": "Fichier",
+    "audio": "Audio",
+    "cancel": "Annuler",
+    "audioCall": "Appel audio",
+    "videoCall": "Appel vidéo",
+    "callFeatureMessage": "Fonctionnalité d'appel {{type}} en cours de développement.\n\nCette fonctionnalité nécessite WebRTC et un serveur backend pour fonctionner.",
+    "ok": "OK"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "profile": {
+      "user": "Utilisateur",
+      "online": "En ligne",
+      "editProfile": "Modifier le profil",
+      "editProfileMessage": "Fonctionnalité à venir"
+    },
+    "appearance": {
+      "title": "APPARENCE",
+      "darkMode": "Mode sombre",
+      "darkModeSubtitle": "Activé par défaut"
+    },
+    "notifications": {
+      "title": "NOTIFICATIONS",
+      "notifications": "Notifications",
+      "notificationsSubtitle": "Recevoir des notifications push",
+      "sounds": "Sons",
+      "soundsSubtitle": "Sons de notification",
+      "soundsConfig": "Configuration des sons"
+    },
+    "security": {
+      "title": "SÉCURITÉ ET CONFIDENTIALITÉ",
+      "e2ee": "Chiffrement E2EE",
+      "e2eeSubtitle": "Chiffrement de bout en bout activé",
+      "biometric": "Authentification biométrique",
+      "biometricSubtitle": "Empreinte digitale ou Face ID",
+      "autoDelete": "Suppression automatique",
+      "autoDeleteSubtitle": "Supprimer les messages après un délai"
+    },
+    "server": {
+      "title": "SERVEUR",
+      "config": "Configuration du serveur",
+      "configSubtitle": "Fortress Cloud Privée ou auto-hébergé",
+      "configMessage": "Connectez-vous à votre serveur Fortress Cloud Privée ou à un serveur auto-hébergé.\n\nCette fonctionnalité nécessite un backend configuré.",
+      "invitation": "Lien d'invitation",
+      "invitationSubtitle": "Partager un lien d'invitation",
+      "generateLink": "Générer un lien"
+    },
+    "about": {
+      "title": "À PROPOS",
+      "about": "À propos de FortressTalk",
+      "aboutSubtitle": "Version 1.0.0",
+      "aboutMessage": "FortressTalk v1.0.0\n\nApplication de messagerie privée sécurisée\n\n🔒 Chiffrement de bout en bout\n📱 Appels audio et vidéo\n💬 Messagerie instantanée\n🔐 Auto-hébergement possible\n\nDéveloppé avec React Native + Expo",
+      "terms": "Conditions d'utilisation",
+      "termsMessage": "Conditions d'utilisation",
+      "privacy": "Politique de confidentialité",
+      "privacyMessage": "Politique de confidentialité"
+    },
+    "logout": {
+      "logout": "Déconnexion",
+      "logoutMessage": "Êtes-vous sûr de vouloir vous déconnecter ?",
+      "cancel": "Annuler"
+    }
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Annuler",
+    "yes": "Oui",
+    "no": "Non",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "close": "Fermer",
+    "back": "Retour"
+  }
+}

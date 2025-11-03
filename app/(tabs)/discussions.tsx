@@ -13,6 +13,7 @@ import { Stack, useRouter } from 'expo-router';
 import { IconSymbol } from '@/components/IconSymbol';
 import { colors, commonStyles } from '@/styles/commonStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import i18n from '@/i18n/config';
 
 interface Conversation {
   id: string;
@@ -134,7 +135,7 @@ export default function DiscussionsScreen() {
       <Stack.Screen
         options={{
           headerShown: true,
-          title: 'FortressTalk',
+          title: i18n.t('discussions.title'),
           headerStyle: {
             backgroundColor: colors.background,
           },
@@ -155,7 +156,7 @@ export default function DiscussionsScreen() {
         <IconSymbol name="magnifyingglass" size={20} color={colors.textSecondary} />
         <TextInput
           style={styles.searchInput}
-          placeholder="Rechercher une conversation..."
+          placeholder={i18n.t('discussions.search')}
           placeholderTextColor={colors.textSecondary}
           value={searchQuery}
           onChangeText={setSearchQuery}
@@ -179,9 +180,9 @@ export default function DiscussionsScreen() {
         ListEmptyComponent={
           <View style={styles.emptyContainer}>
             <IconSymbol name="chat.bubble" size={64} color={colors.textSecondary} />
-            <Text style={styles.emptyText}>Aucune conversation</Text>
+            <Text style={styles.emptyText}>{i18n.t('discussions.empty')}</Text>
             <Text style={styles.emptySubtext}>
-              Commencez une nouvelle discussion
+              {i18n.t('discussions.emptySubtext')}
             </Text>
           </View>
         }

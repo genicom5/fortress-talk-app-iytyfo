@@ -14,6 +14,7 @@ import { IconSymbol } from '@/components/IconSymbol';
 import { colors, commonStyles } from '@/styles/commonStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import * as Haptics from 'expo-haptics';
+import i18n from '@/i18n/config';
 
 interface CallHistory {
   id: string;
@@ -78,10 +79,11 @@ export default function CallsScreen() {
 
   const handleCall = (name: string, type: 'audio' | 'video') => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    const callType = type === 'video' ? i18n.t('calls.videoCall') : i18n.t('calls.audioCall');
     Alert.alert(
-      `Appel ${type === 'video' ? 'vidéo' : 'audio'}`,
-      `Appeler ${name}...\n\nCette fonctionnalité nécessite WebRTC et un serveur backend pour fonctionner. Elle sera disponible dans une future version.`,
-      [{ text: 'OK' }]
+      callType,
+      `${i18n.t('calls.calling')} ${name}...\n\n${i18n.t('calls.callFeatureMessage')}`,
+      [{ text: i18n.t('common.ok') }]
     );
   };
 
@@ -147,7 +149,7 @@ export default function CallsScreen() {
       <Stack.Screen
         options={{
           headerShown: true,
-          title: 'Appels',
+          title: i18n.t('calls.title'),
           headerStyle: {
             backgroundColor: colors.background,
           },
@@ -159,7 +161,7 @@ export default function CallsScreen() {
       <View style={styles.infoCard}>
         <IconSymbol name="info.circle.fill" size={24} color={colors.accent} />
         <Text style={styles.infoText}>
-          Les appels audio et vidéo nécessitent WebRTC et un serveur backend. Cette fonctionnalité sera disponible prochainement.
+          {i18n.t('calls.infoMessage')}
         </Text>
       </View>
 
@@ -175,9 +177,9 @@ export default function CallsScreen() {
         ListEmptyComponent={
           <View style={styles.emptyContainer}>
             <IconSymbol name="phone" size={64} color={colors.textSecondary} />
-            <Text style={styles.emptyText}>Aucun appel</Text>
+            <Text style={styles.emptyText}>{i18n.t('calls.empty')}</Text>
             <Text style={styles.emptySubtext}>
-              Votre historique d&apos;appels apparaîtra ici
+              {i18n.t('calls.emptySubtext')}
             </Text>
           </View>
         }

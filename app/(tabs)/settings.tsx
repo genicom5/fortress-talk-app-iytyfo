@@ -15,6 +15,7 @@ import { IconSymbol } from '@/components/IconSymbol';
 import { colors, commonStyles } from '@/styles/commonStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import * as Haptics from 'expo-haptics';
+import i18n from '@/i18n/config';
 
 export default function SettingsScreen() {
   const [darkMode, setDarkMode] = useState(true);
@@ -36,18 +37,18 @@ export default function SettingsScreen() {
   const handleServerConfig = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     Alert.alert(
-      'Configuration du serveur',
-      'Connectez-vous à votre serveur Fortress Cloud Privée ou à un serveur auto-hébergé.\n\nCette fonctionnalité nécessite un backend configuré.',
-      [{ text: 'OK' }]
+      i18n.t('settings.server.config'),
+      i18n.t('settings.server.configMessage'),
+      [{ text: i18n.t('common.ok') }]
     );
   };
 
   const handleAbout = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     Alert.alert(
-      'À propos de FortressTalk',
-      'FortressTalk v1.0.0\n\nApplication de messagerie privée sécurisée\n\n🔒 Chiffrement de bout en bout\n📱 Appels audio et vidéo\n💬 Messagerie instantanée\n🔐 Auto-hébergement possible\n\nDéveloppé avec React Native + Expo',
-      [{ text: 'OK' }]
+      i18n.t('settings.about.about'),
+      i18n.t('settings.about.aboutMessage'),
+      [{ text: i18n.t('common.ok') }]
     );
   };
 
@@ -96,7 +97,7 @@ export default function SettingsScreen() {
       <Stack.Screen
         options={{
           headerShown: true,
-          title: 'Paramètres',
+          title: i18n.t('settings.title'),
           headerStyle: {
             backgroundColor: colors.background,
           },
@@ -118,26 +119,29 @@ export default function SettingsScreen() {
           <View style={styles.profileAvatar}>
             <Text style={styles.profileAvatarText}>👤</Text>
           </View>
-          <Text style={styles.profileName}>Utilisateur</Text>
-          <Text style={styles.profileStatus}>En ligne</Text>
+          <Text style={styles.profileName}>{i18n.t('settings.profile.user')}</Text>
+          <Text style={styles.profileStatus}>{i18n.t('settings.profile.online')}</Text>
           <Pressable
             style={styles.editProfileButton}
             onPress={() => {
               Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-              Alert.alert('Modifier le profil', 'Fonctionnalité à venir');
+              Alert.alert(
+                i18n.t('settings.profile.editProfile'),
+                i18n.t('settings.profile.editProfileMessage')
+              );
             }}
           >
-            <Text style={styles.editProfileText}>Modifier le profil</Text>
+            <Text style={styles.editProfileText}>{i18n.t('settings.profile.editProfile')}</Text>
           </Pressable>
         </View>
 
         {/* Appearance */}
-        <SectionHeader title="APPARENCE" />
+        <SectionHeader title={i18n.t('settings.appearance.title')} />
         <View style={styles.section}>
           <SettingItem
             icon="moon.fill"
-            title="Mode sombre"
-            subtitle="Activé par défaut"
+            title={i18n.t('settings.appearance.darkMode')}
+            subtitle={i18n.t('settings.appearance.darkModeSubtitle')}
             showChevron={false}
             rightElement={
               <Switch
@@ -151,12 +155,12 @@ export default function SettingsScreen() {
         </View>
 
         {/* Notifications */}
-        <SectionHeader title="NOTIFICATIONS" />
+        <SectionHeader title={i18n.t('settings.notifications.title')} />
         <View style={styles.section}>
           <SettingItem
             icon="bell.fill"
-            title="Notifications"
-            subtitle="Recevoir des notifications push"
+            title={i18n.t('settings.notifications.notifications')}
+            subtitle={i18n.t('settings.notifications.notificationsSubtitle')}
             showChevron={false}
             rightElement={
               <Switch
@@ -171,19 +175,22 @@ export default function SettingsScreen() {
           />
           <SettingItem
             icon="speaker.wave.2.fill"
-            title="Sons"
-            subtitle="Sons de notification"
-            onPress={() => Alert.alert('Sons', 'Configuration des sons')}
+            title={i18n.t('settings.notifications.sounds')}
+            subtitle={i18n.t('settings.notifications.soundsSubtitle')}
+            onPress={() => Alert.alert(
+              i18n.t('settings.notifications.sounds'),
+              i18n.t('settings.notifications.soundsConfig')
+            )}
           />
         </View>
 
         {/* Security */}
-        <SectionHeader title="SÉCURITÉ ET CONFIDENTIALITÉ" />
+        <SectionHeader title={i18n.t('settings.security.title')} />
         <View style={styles.section}>
           <SettingItem
             icon="lock.shield.fill"
-            title="Chiffrement E2EE"
-            subtitle="Chiffrement de bout en bout activé"
+            title={i18n.t('settings.security.e2ee')}
+            subtitle={i18n.t('settings.security.e2eeSubtitle')}
             showChevron={false}
             rightElement={
               <Switch
@@ -196,8 +203,8 @@ export default function SettingsScreen() {
           />
           <SettingItem
             icon="faceid"
-            title="Authentification biométrique"
-            subtitle="Empreinte digitale ou Face ID"
+            title={i18n.t('settings.security.biometric')}
+            subtitle={i18n.t('settings.security.biometricSubtitle')}
             showChevron={false}
             rightElement={
               <Switch
@@ -212,8 +219,8 @@ export default function SettingsScreen() {
           />
           <SettingItem
             icon="timer"
-            title="Suppression automatique"
-            subtitle="Supprimer les messages après un délai"
+            title={i18n.t('settings.security.autoDelete')}
+            subtitle={i18n.t('settings.security.autoDeleteSubtitle')}
             showChevron={false}
             rightElement={
               <Switch
@@ -229,40 +236,49 @@ export default function SettingsScreen() {
         </View>
 
         {/* Server */}
-        <SectionHeader title="SERVEUR" />
+        <SectionHeader title={i18n.t('settings.server.title')} />
         <View style={styles.section}>
           <SettingItem
             icon="server.rack"
-            title="Configuration du serveur"
-            subtitle="Fortress Cloud Privée ou auto-hébergé"
+            title={i18n.t('settings.server.config')}
+            subtitle={i18n.t('settings.server.configSubtitle')}
             onPress={handleServerConfig}
           />
           <SettingItem
             icon="link"
-            title="Lien d&apos;invitation"
-            subtitle="Partager un lien d&apos;invitation"
-            onPress={() => Alert.alert('Lien d\'invitation', 'Générer un lien')}
+            title={i18n.t('settings.server.invitation')}
+            subtitle={i18n.t('settings.server.invitationSubtitle')}
+            onPress={() => Alert.alert(
+              i18n.t('settings.server.invitation'),
+              i18n.t('settings.server.generateLink')
+            )}
           />
         </View>
 
         {/* About */}
-        <SectionHeader title="À PROPOS" />
+        <SectionHeader title={i18n.t('settings.about.title')} />
         <View style={styles.section}>
           <SettingItem
             icon="info.circle.fill"
-            title="À propos de FortressTalk"
-            subtitle="Version 1.0.0"
+            title={i18n.t('settings.about.about')}
+            subtitle={i18n.t('settings.about.aboutSubtitle')}
             onPress={handleAbout}
           />
           <SettingItem
             icon="doc.text.fill"
-            title="Conditions d&apos;utilisation"
-            onPress={() => Alert.alert('Conditions', 'Conditions d\'utilisation')}
+            title={i18n.t('settings.about.terms')}
+            onPress={() => Alert.alert(
+              i18n.t('settings.about.terms'),
+              i18n.t('settings.about.termsMessage')
+            )}
           />
           <SettingItem
             icon="hand.raised.fill"
-            title="Politique de confidentialité"
-            onPress={() => Alert.alert('Confidentialité', 'Politique de confidentialité')}
+            title={i18n.t('settings.about.privacy')}
+            onPress={() => Alert.alert(
+              i18n.t('settings.about.privacy'),
+              i18n.t('settings.about.privacyMessage')
+            )}
           />
         </View>
 
@@ -272,17 +288,21 @@ export default function SettingsScreen() {
           onPress={() => {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
             Alert.alert(
-              'Déconnexion',
-              'Êtes-vous sûr de vouloir vous déconnecter ?',
+              i18n.t('settings.logout.logout'),
+              i18n.t('settings.logout.logoutMessage'),
               [
-                { text: 'Annuler', style: 'cancel' },
-                { text: 'Déconnexion', style: 'destructive', onPress: () => console.log('Logout') },
+                { text: i18n.t('settings.logout.cancel'), style: 'cancel' },
+                { 
+                  text: i18n.t('settings.logout.logout'), 
+                  style: 'destructive', 
+                  onPress: () => console.log('Logout') 
+                },
               ]
             );
           }}
         >
           <IconSymbol name="arrow.right.square.fill" size={20} color={colors.error} />
-          <Text style={styles.logoutText}>Déconnexion</Text>
+          <Text style={styles.logoutText}>{i18n.t('settings.logout.logout')}</Text>
         </Pressable>
       </ScrollView>
     </SafeAreaView>
